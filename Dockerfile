@@ -33,4 +33,5 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /
 RUN apt-get update -y
 RUN apt-get install -y docker-ce
 RUN curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
 
