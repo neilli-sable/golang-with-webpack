@@ -4,7 +4,7 @@ LABEL maintainer=neilli-sable
 # General
 ###############
 RUN apt-get update -y
-RUN apt-get install -y build-essential libssl-dev curl upx
+RUN apt-get install -y build-essential libssl-dev curl upx sudo
 ###############
 # Golang
 ###############
