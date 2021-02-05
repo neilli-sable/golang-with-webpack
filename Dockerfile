@@ -15,7 +15,7 @@ RUN GO111MODULE=on go get github.com/golang/mock/mockgen@latest
 ###############
 # Node & TypeScript
 ###############
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g webpack webpack-cli
 RUN npm install -g typescript
