@@ -1,4 +1,4 @@
-FROM golang
+FROM golang:1.17
 LABEL maintainer=neilli-sable
 ###############
 # General
