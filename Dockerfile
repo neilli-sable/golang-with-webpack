@@ -11,7 +11,7 @@ RUN apt-get install -y build-essential libssl-dev curl upx sudo iproute2
 RUN git clone -b mygogs https://github.com/neilli-sable/dep.git $GOPATH/src/github.com/golang/dep
 RUN GO111MODULE=off go get -u github.com/golang/dep/cmd/dep
 RUN GO111MODULE=off go get -u github.com/jessevdk/go-assets-builder
-RUN GO111MODULE=on go get github.com/golang/mock/mockgen@latest
+RUN GO111MODULE=on go install github.com/golang/mock/mockgen@latest
 ###############
 # Node & TypeScript
 ###############
