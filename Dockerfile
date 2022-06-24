@@ -1,10 +1,10 @@
-FROM golang:1.18.2
+FROM golang:1.18.3
 LABEL maintainer=neilli-sable
 ###############
 # General
 ###############
 RUN apt-get update -y
-RUN apt-get install -y build-essential libssl-dev curl upx sudo iproute2
+RUN apt-get install -y build-essential libssl-dev curl upx sudo iproute2 unzip
 ###############
 # Golang
 ###############
@@ -20,12 +20,6 @@ RUN apt-get install -y nodejs
 RUN npm install -g webpack webpack-cli
 RUN npm install -g typescript
 RUN npm install -g yarn
-###############
-# Elm
-###############
-RUN wget "https://github.com/elm/compiler/releases/download/0.19.0/binaries-for-linux.tar.gz"
-RUN tar xzf binaries-for-linux.tar.gz
-RUN mv elm /usr/local/bin/
 ##############
 # Docker
 ##############
@@ -37,3 +31,9 @@ RUN apt-get install -y docker-ce
 RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 COPY docker-lib.sh /docker-lib.sh
+##############
+# AWS
+##############
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
