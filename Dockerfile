@@ -1,4 +1,4 @@
-FROM golang:1.18.3
+FROM golang:1.19
 LABEL maintainer=neilli-sable
 ###############
 # General
@@ -15,7 +15,7 @@ RUN GO111MODULE=on go install github.com/golang/mock/mockgen@latest
 ###############
 # Node & TypeScript
 ###############
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 RUN apt-get install -y nodejs
 RUN npm install -g webpack webpack-cli
 RUN npm install -g typescript
